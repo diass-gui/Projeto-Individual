@@ -1,0 +1,22 @@
+body {
+    margin: 0
+}
+header {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    background-color: green;
+    margin: 0;
+    justify-content: space-between;
+}
+header .titulo {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+}
+header .options {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: flex-end;
+}
