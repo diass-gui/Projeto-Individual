@@ -8,6 +8,7 @@ header {
     background-color: #041635;
     margin: 0;
     justify-content: space-between;
+    flex-direction: row;
 }
 .container .logo { 
     display: flex;
