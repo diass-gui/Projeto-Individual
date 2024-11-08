@@ -1,0 +1,11 @@
+body {
+    display: flex;
+}
+.cadastro {
+    border-radius: 3px solid black;
+    margin-left: 150px;
+    align-items: center;
+}
+.cadastro .campo {
+    display: flex;
+}

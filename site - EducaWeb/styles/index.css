@@ -5,16 +5,15 @@ header {
     height: 100px;
     width: 100%;
     display: flex;
-    background-color: green;
+    background-color: #041635;
     margin: 0;
     justify-content: space-between;
 }
-header .titulo {
+.container .logo { 
     display: flex;
-    align-items: center;
-    padding: 15px;
+    height: 150px;
 }
-header .options {
+.container .opcoes {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
