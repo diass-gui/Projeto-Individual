@@ -56,10 +56,26 @@
 
 <script>
     function ExibirSenha() {
-        const senha = senhaUsuario_input.value
+        const senha = document.getElementById("senhaUsuario_input")
 
         if(senha.type == "password") {
-            return senha.type = "text"
+            senha.type = "text"
+        } else {
+            senha.type = "password"
         }
+    }
+
+    function Cadastrar() {
+        var nome = nomeUsuario_input.value
+        var email = emailUsuario_input.value
+        var dtNascimento = dtNascUsuario_input.value
+        var senha = senhaUsuario_input.value
+        var confirmSenha = confirmacaoSenha_input.value
+
+        // validação
+        if(nome == "" || email == "" || dtNascimento == "" ||
+            senha == "" || confirmSenha == "") {
+                alert('Preencha todos os campos')
+            }
     }
 </script>
