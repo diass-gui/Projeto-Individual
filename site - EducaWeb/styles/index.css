@@ -1,5 +1,5 @@
 body {
-    margin: 0
+    margin: 0;
 }
 header {
     height: 100px;
@@ -7,24 +7,43 @@ header {
     display: flex;
     background-color: #041635;
     margin: 0;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-direction: row;
+}
+.container {
+    margin-left: 30px;
+    margin-top: 10px;
 }
 .container .logo .img { 
     display: flex;
     height: 75px;
 }
 .navbar {
+    margin-top: 10px;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+}
+ /*.navbar {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     align-items: flex-end;
-    margin-right: 24px;
-    margin-top: 30px;
+    margin-right: 30px;
+    margin-top: 25px;
 }
-.navbar .a {
+.navbar #a {
     display: flex; 
     justify-content: space-around;
-    gap: 15px;
-}
+}*/
 
