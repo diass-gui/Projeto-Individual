@@ -2,18 +2,23 @@ body {
     display: flex;
 }
 .cadastro {
-    display: flex;
     border-radius: 3px solid black;
     margin-left: 150px;
+    align-self: center;
+    margin: 0 auto;
 }
-#campo {
-    display: flex;
+.campo {
     border-radius: 2px solid black;
     align-items: center;
     justify-content: center;
 }
-.cadastro #titulo {
-    display: flex;
+.cadastro .titulo {
     justify-content: center;
     align-items: center;
+}
+.cadastro .campo h4 {
+    text-align: center;
+}
+.botao {
+    border-radius: 3px solid black;
 }

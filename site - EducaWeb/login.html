@@ -16,31 +16,45 @@
             </a> 
         </div>
         <div class="navbar">
-        <ul>    
-            <a href="../site - EducaWeb/cadastro.html">Cadastro</a>
-            <a href="../site - EducaWeb/login.html">Login</a>
-            <a href="../site - EducaWeb/catalogo.html">Catálogo</a>
-        </ul>
-    </div>
+            <ul>
+                <li>    
+                    <a href="../site - EducaWeb/cadastro.html">Cadastro</a>
+                </li>
+                <li>
+                    <a href="../site - EducaWeb/login.html">Login</a>
+                </li>
+                <li>
+                    <a href="../site - EducaWeb/catalogo.html">Catálogo</a>
+                </li>
+            </ul>
+        </div>
     </header>
 
     <div class="Login">
-        <center>
             <h1>Login do usuário</h1>
-        </center>
-
             <div class="campo">
                 <h4>Informe o seu login: </h4>
                 <input id="loginUsuario_input" type="email" placeholder="Ex: xampsonsilva@gmaiu.com"><br>
             </div>
             <div class="campo">
                 <h4>Agora, digite sua senha: </h4>
-                <input id="senhaUsuario_input" type="password" placeholder="*********"><br>
+                <input id="senhaUsuario_input" type="password" placeholder="*********"><br><br>
             </div>
-            <div class="campo">
-                <h4>Nos informe a sua data de nascimento: </h4>
-                <input id="dtNascUsuario_input" type="date" placeholder="12/10/2024"><br>
-            </div>
+                <button onclick="AutenticarLogin()" class="botao">Cadastrar</button>
     </div>
 </body>
 </html>
+
+<script>
+    function AutenticarLogin() {
+        const LoginUsuario = loginUsuario_input.value
+        const SenhaUsuario = senhaUsuario_input.value
+
+        if(LoginUsuario == "" || SenhaUsuario == "") {
+            alert("Preencha todos os campos!")
+        }
+        else {
+            window.location = "file:///C:/Users/Aluno/Projeto-Individual/site%20-%20EducaWeb/perfilUsuario.html"
+        }
+    }
+</script>

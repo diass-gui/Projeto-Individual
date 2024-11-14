@@ -1,8 +1,4 @@
 body {
-    /* colocar aqui a cor da logo como background, para teste */
+    display: flex;/* colocar aqui a cor da logo como background, para teste */
 }
-.cursos-grid {
-    display: grid;
-    grid-template-columns: 200px 200px 200px;
-    color: darkblue;
-}
+
