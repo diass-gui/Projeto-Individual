@@ -3,82 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="../site - EducaWeb/styles/index.css">
+    <link rel="stylesheet" href="../site - EducaWeb/styles/cadastro.css">
     <title>Cadastro | EducaWeb</title>
 </head>
 <body>
     <header>
         <div class="container">
-         <a class="logo" href="./index.html">
-                   <img src="../Documentação/Imagens/simbolo_educaWeb.png">
-               </a>  
-            </div> 
+            <a class="logo" href="./index.html">
+                <img src="../Documentação/Imagens/icon_educaWeb.png" alt="Logo EducaWeb">
+            </a>
+        </div>
         <div class="navbar">
-            <ul>    
-                <a href="../site - EducaWeb/cadastro.html">Cadastro</a>
-                <a href="../site - EducaWeb/login.html">Login</a>
-                <a href="../site - EducaWeb/catalogo.html">Catálogo</a>
+            <ul>
+                <li><a href="./cadastro.html">Cadastro</a></li>
+                <li><a href="./login.html">Login</a></li>
+                <li><a href="./catalogo.html">Catálogo</a></li>
             </ul>
         </div>
     </header>
 
     <div class="cadastro">
-        <div class="titulo">
-            <h1>Cadastro de Usuário</h1>
+        <h1>Cadastro de Usuário</h1>
+        <div class="campo">
+            <label for="nomeUsuario_input">Nome completo:</label>
+            <input id="nomeUsuario_input" type="text" placeholder="Ex: João da Silva">
         </div>
         <div class="campo">
-            <h4>Primeiro, nos informe o seu nome completo: </h4>
-            <input id="nomeUsuario_input" type="text" placeholder="Ex: Xampson da Silva"><br>
+            <label for="emailUsuario_input">E-mail:</label>
+            <input id="emailUsuario_input" type="email" placeholder="exemplo@dominio.com">
         </div>
         <div class="campo">
-            <h4>Agora, nos informe seu email: </h4>
-            <input id="emailUsuario_input" type="email" placeholder="xampsonsilva@gmaiu.com"><br>
+            <label for="dtNascUsuario_input">Data de nascimento:</label>
+            <input id="dtNascUsuario_input" type="date">
         </div>
         <div class="campo">
-            <h4>Nos informe a sua data de nascimento: </h4>
-            <input id="dtNascUsuario_input" type="date" placeholder="12/10/2024"><br>
+            <label for="senhaUsuario_input">Senha:</label>
+            <input id="senhaUsuario_input" type="password" placeholder="********">
+            <button class="botao" onclick="ExibirSenha()">Mostrar Senha</button>
         </div>
-            <div class="campo">
-            <h4>Agora, insira uma senha: </h4>
-                <input id="senhaUsuario_input" type="password" placeholder="**********">
-                <button class="botao" onclick="ExibirSenha()">Mostrar Senha</button><br>
-            </div>
         <div class="campo">
-            <h4>Digite novamente sua senha: </h4>
-            <input id="confirmacaoSenha_input" type="password" placeholder="*********"><br><br>
+            <label for="confirmacaoSenha_input">Confirme a senha:</label>
+            <input id="confirmacaoSenha_input" type="password" placeholder="********">
         </div>
-        <button class="botao" onclick="Cadastrar()" class="botao">Cadastrar</button>
+        <button class="botao" onclick="Cadastrar()">Cadastrar</button>
     </div>
 
+    <footer>
+        <p>&copy; 2024 EducaWeb. Todos os direitos reservados.</p>
+        <p>
+            <a href="#">Política de Privacidade</a> | 
+            <a href="#">Termos de Uso</a> | 
+            <a href="#">Contato</a>
+        </p>
+    </footer>
+
+    <script>
+        function ExibirSenha() {
+            const senha = document.getElementById("senhaUsuario_input");
+            senha.type = senha.type === "password" ? "text" : "password";
+        }
+
+        function Cadastrar() {
+            const nome = nomeUsuario_input.value;
+            const email = emailUsuario_input.value;
+            const dtNascimento = dtNascUsuario_input.value;
+            const senha = senhaUsuario_input.value;
+            const confirmSenha = confirmacaoSenha_input.value;
+
+            if (!nome || !email || !dtNascimento || !senha || !confirmSenha) {
+                alert('Preencha todos os campos');
+            } else if (senha !== confirmSenha) {
+                alert('As senhas não conferem');
+            } else {
+                window.location.href = "./login.html";
+            }
+        }
+    </script>
 </body>
 </html>
-
-<script>
-
-    function ExibirSenha() {
-        const senha = document.getElementById("senhaUsuario_input")
-
-        if(senha.type == "password") {
-            senha.type = "text"
-        } else {
-            senha.type = "password"
-        }
-    }
-
-    function Cadastrar() {
-        var nome = nomeUsuario_input.value
-        var email = emailUsuario_input.value
-        var dtNascimento = dtNascUsuario_input.value
-        var senha = senhaUsuario_input.value
-        var confirmSenha = confirmacaoSenha_input.value
-
-        // validação
-        if(nome == "" || email == "" || dtNascimento == "" ||
-            senha == "" || confirmSenha == "") {
-                alert('Preencha todos os campos')
-            } else {
-                window.location = "file:///C:/Users/Aluno/Projeto-Individual/site%20-%20EducaWeb/login.html"
-            }
-    }   
-
-</script>

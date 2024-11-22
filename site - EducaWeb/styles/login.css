@@ -1,12 +1,53 @@
-body {
-    display: flex;
+.login {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
-header {
-    height: 100%;
+
+.login h1 {
+    color: #041635;
+    margin-bottom: 20px;
+}
+
+.campo {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.campo label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.campo input {
     width: 100%;
-}
-.Login {
-    align-items: center;
-    justify-content: center;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     box-sizing: border-box;
+}
+
+.botao {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #041635;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.botao:hover {
+    background-color: #063970;
 }

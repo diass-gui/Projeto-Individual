@@ -1,32 +1,27 @@
 body {
     margin: 0;
+    font-family: Arial, sans-serif;
 }
+
 header {
     height: 100px;
     width: 100%;
     display: flex;
     background-color: #041635;
-    margin: 0;
     justify-content: space-between;
-    flex-direction: row;
+    align-items: center;
+    padding: 0 20px;
 }
-.container {
-    margin-left: 30px;
-    margin-top: 10px;
-}
+
 .container .logo img { 
-    height: 75px;
-}
-.navbar {
-    margin-top: 9px;
+    height: 95px;
 }
 
 .navbar ul {
     list-style: none;
-    padding: 0px;
+    padding: 0;
     display: flex;
     gap: 15px;
-    margin-right: 16px;
 }
 
 .navbar a {
@@ -34,5 +29,52 @@ header {
     padding: 10px;
     color: white;
     font-size: 20px;
+    transition: background-color 0.3s;
 }
 
+.navbar a:hover {
+    background-color: #063970;
+    border-radius: 5px;
+}
+
+.banner {
+    background: url('../Documentação/Imagens/banner.jpg') no-repeat center center;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.sobre-nos {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.sobre-nos h2 {
+    color: #041635;
+    margin-bottom: 20px;
+}
+
+.sobre-nos p {
+    font-size: 18px;
+    color: #333;
+}
+
+footer {
+    background-color: #041635;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+footer a {
+    color: #6ca0dc;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
