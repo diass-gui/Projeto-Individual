@@ -10,11 +10,11 @@ header {
     background-color: #041635;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    padding: 0 px;
 }
 
 .container .logo img { 
-    height: 95px;
+    height: 100px;
 }
 
 .navbar ul {
@@ -22,6 +22,7 @@ header {
     padding: 0;
     display: flex;
     gap: 15px;
+    margin-right: 15px;
 }
 
 .navbar a {
@@ -40,11 +41,16 @@ header {
 .banner {
     background: url('../Documentação/Imagens/banner.jpg') no-repeat center center;
     background-size: cover;
-    color: white;
     text-align: center;
     padding: 50px 20px;
 }
-
+.banner h1 {
+    color: #041635;
+}
+.banner p {
+    color: #333;
+    font-size: 20px;
+}
 .sobre-nos {
     padding: 40px 20px;
     background-color: #f9f9f9;

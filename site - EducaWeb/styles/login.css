@@ -6,6 +6,7 @@
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    border: 2.5px solid #041635;
 }
 
 .login h1 {

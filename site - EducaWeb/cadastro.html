@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../site - EducaWeb/styles/index.css">
     <link rel="stylesheet" href="../site - EducaWeb/styles/cadastro.css">
+    <link rel="stylesheet" href="../site - EducaWeb/styles/login.css">
+    <link rel="stylesheet" href="../site - EducaWeb/styles/catalogo.css">
+    <link rel="stylesheet" href="../site - EducaWeb/styles/perfil.css">
+    <link rel="stylesheet" href="../site - EducaWeb/styles/dashboard.css">
+    <link rel="icon" href="../Documentação/Imagens/simbolo_educaWeb.png">
     <title>Cadastro | EducaWeb</title>
 </head>
 <body>
@@ -16,7 +21,6 @@
         </div>
         <div class="navbar">
             <ul>
-                <li><a href="./cadastro.html">Cadastro</a></li>
                 <li><a href="./login.html">Login</a></li>
                 <li><a href="./catalogo.html">Catálogo</a></li>
             </ul>
@@ -26,57 +30,57 @@
     <div class="cadastro">
         <h1>Cadastro de Usuário</h1>
         <div class="campo">
-            <label for="nomeUsuario_input">Nome completo:</label>
-            <input id="nomeUsuario_input" type="text" placeholder="Ex: João da Silva">
+            <label for="input_nomeUsuario">Nome completo:</label>
+            <input id="input_nomeUsuario" type="text" placeholder="Ex: João da Silva">
         </div>
         <div class="campo">
-            <label for="emailUsuario_input">E-mail:</label>
-            <input id="emailUsuario_input" type="email" placeholder="exemplo@dominio.com">
+            <label for="input_emailUsuario">E-mail:</label>
+            <input id="input_emailUsuario" type="email" placeholder="exemplo@dominio.com">
         </div>
         <div class="campo">
-            <label for="dtNascUsuario_input">Data de nascimento:</label>
-            <input id="dtNascUsuario_input" type="date">
+            <label for="input_dtNasc">Data de nascimento:</label>
+            <input id="input_dtNasc" type="date">
         </div>
         <div class="campo">
-            <label for="senhaUsuario_input">Senha:</label>
-            <input id="senhaUsuario_input" type="password" placeholder="********">
+            <label for="input_senhaUsuario">Senha:</label>
+            <input id="input_senhaUsuario" type="password" placeholder="********">
             <button class="botao" onclick="ExibirSenha()">Mostrar Senha</button>
         </div>
         <div class="campo">
-            <label for="confirmacaoSenha_input">Confirme a senha:</label>
-            <input id="confirmacaoSenha_input" type="password" placeholder="********">
+            <label for="input_confirmacaoSenha">Confirme a senha:</label>
+            <input id="input_confirmacaoSenha" type="password" placeholder="********">
         </div>
         <button class="botao" onclick="Cadastrar()">Cadastrar</button>
     </div>
 
     <footer>
-        <p>&copy; 2024 EducaWeb. Todos os direitos reservados.</p>
-        <p>
-            <a href="#">Política de Privacidade</a> | 
-            <a href="#">Termos de Uso</a> | 
-            <a href="#">Contato</a>
-        </p>
+        <p>&copy; 2024 EducaWeb. Desenvolvido por: Guilherme Dias.</p>
     </footer>
 
     <script>
         function ExibirSenha() {
-            const senha = document.getElementById("senhaUsuario_input");
-            senha.type = senha.type === "password" ? "text" : "password";
+            const senha = document.getElementById("input_senhaUsuario");
+            if(senha.type === "password") {
+                senha.type = "text"
+                return senha
+            } else {
+                senha.type = "password"
+            }
         }
 
         function Cadastrar() {
-            const nome = nomeUsuario_input.value;
-            const email = emailUsuario_input.value;
-            const dtNascimento = dtNascUsuario_input.value;
-            const senha = senhaUsuario_input.value;
-            const confirmSenha = confirmacaoSenha_input.value;
+            const nome = input_nomeUsuario.value;
+            const email = input_emailUsuario.value;
+            const dtNascimento = input_dtNasc.value;
+            const senha = input_senhaUsuario.value;
+            const confirmacaoSenha = input_confirmacaoSenha.value;
 
-            if (!nome || !email || !dtNascimento || !senha || !confirmSenha) {
+            if (!nome || !email || !dtNascimento || !senha || !confirmacaoSenha) {
                 alert('Preencha todos os campos');
-            } else if (senha !== confirmSenha) {
+            } else if (senha != confirmacaoSenha) {
                 alert('As senhas não conferem');
             } else {
-                window.location.href = "./login.html";
+                window.location.href = "../site - EducaWeb/login.html";
             }
         }
     </script>

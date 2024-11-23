@@ -1,3 +1,44 @@
 body {
     margin: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f9f9f9;
+}
+.perfil-container {
+    max-width: 900px;
+    margin: 50px auto;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+}
+
+.perfil-container h1 {
+    font-size: 32px;
+    color: #041635;
+    margin-bottom: 10px;
+}
+
+.perfil-container p {
+    font-size: 18px;
+    color: #333;
+}
+
+footer {
+    background-color: #041635;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+footer a {
+    color: #6ca0dc;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
