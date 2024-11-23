@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../site - EducaWeb/styles/index.css">
-    <link rel="stylesheet" href="../site - EducaWeb/styles/cadastro.css">
-    <link rel="stylesheet" href="../site - EducaWeb/styles/login.css">
-    <link rel="stylesheet" href="../site - EducaWeb/styles/catalogo.css">
-    <link rel="stylesheet" href="../site - EducaWeb/styles/perfil.css">
     <link rel="stylesheet" href="../site - EducaWeb/styles/dashboard.css">
+    <link rel="icon" href="../Documentação/Imagens/simbolo_educaWeb.png">
     <title>Dashboard | EducaWeb</title>
 </head>
 <body>
@@ -26,12 +23,76 @@
         </div>
     </header>
 
-    <main class="graficos">
-        <h1>Yabadabado</h1>
+    <main>
+        <section class="indicadores-container">
+            <div class="indicador">
+                <h3>Indicador 1</h3>
+            </div>
+            <div class="indicador">
+                <h3>Indicador 2</h3>
+            </div>
+            <div class="indicador">
+                <h3>Indicador 3</h3>
+            </div>
+        </section>
+        <section class="graficos-container">
+            <div class="grafico">
+                <canvas id="plataformas"></canvas>
+            </div>
+            <div class="grafico">
+                <canvas id="areas"></canvas>
+            </div>
+        </section>
     </main>
 
     <footer>
         <p>&copy; 2024 EducaWeb. Desenvolvido por: Guilherme Dias. </p>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx1 = document.getElementById('plataformas').getContext('2d');
+        new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: ['Youtube', 'Udemy', 'Coursera'],
+                datasets: [{
+                    label: 'Visitas',
+                    data: [3, 2, 0],
+                    backgroundColor: ['#4CAF50', '#2196F3', '#FF5722'],
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'top' },
+                    title: { display: true, text: 'Plataformas mais visitadas' }
+                }
+            }
+        });
+
+        // Gráfico 2
+        const ctx2 = document.getElementById('areas').getContext('2d');
+        new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: ['Finanças', 'Programação', 'Apps de Escritório'],
+                datasets: [{
+                    label: 'Áreas',
+                    data: [1, 2, 2],
+                    backgroundColor: ['#FFC107', '#03A9F4', '#8BC34A'],
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'top' },
+                    title: { display: true, text: 'Áreas mais visualizadas' }
+                }
+            }
+        });
+    </script>
 </body>
 </html>

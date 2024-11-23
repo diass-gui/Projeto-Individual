@@ -3,17 +3,72 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
 }
-main.graficos {
-    max-width: 1200px;
-    margin: 50px auto;
+
+.graficos-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 30px;
+}
+
+.grafico {
+    flex: 1 1 45%;
+    max-width: 500px;
+    min-width: 300px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.indicadores-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin: 30px;
+}
+
+.indicador {
+    flex: 1 1 30%;
+    max-width: 300px;
+    min-width: 150px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/*
+.graficos {
+    display: flex;
+    max-width: 600px;
+    margin: 30px auto;
+    margin-top: 20px;
+    margin-left: 25px;
     padding: 20px;
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+
 }
 
-main.graficos h1 {
+.indicadores {
+    display: flex;
+    height: 200px;
+    width: 200px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.graficos h1 {
     font-size: 32px;
     color: #041635;
     margin-bottom: 20px;
@@ -31,3 +86,4 @@ footer p {
     margin: 0;
     font-size: 14px;
 }
+*/

@@ -1,5 +1,3 @@
-/* Adicionando o estilo do catálogo ao padrão geral */
-
 .catalogo {
     padding: 40px 20px;
     background-color: #f9f9f9;
@@ -38,7 +36,6 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Ajustes no footer */
 footer {
     background-color: #041635;
     color: white;
