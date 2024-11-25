@@ -17,6 +17,12 @@ header {
     height: 100px;
 }
 
+.banner img{
+    height: 100vh;
+    width: 100%;
+    margin: 0 auto;
+}
+
 .navbar ul {
     list-style: none;
     padding: 0;
