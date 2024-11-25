@@ -4,10 +4,10 @@ USE EducaWeb;
 
 CREATE TABLE Usuario (
 idUsuario INT PRIMARY KEY AUTO_INCREMENT, 
-nome VARCHAR(45), 
-email VARCHAR(45), 
-senha VARCHAR(45)
-); 
+nome VARCHAR(45) NOT NULL, 
+email VARCHAR(45) NOT NULL, 
+senha VARCHAR(45) NOT NULL
+) AUTO_INCREMENT=100; 
 
 CREATE TABLE Curso (
 idCurso INT PRIMARY KEY AUTO_INCREMENT, 
@@ -20,6 +20,7 @@ plataforma VARCHAR(45)
 ) AUTO_INCREMENT = 10 ; 
 
 CREATE TABLE Inscricao (
+idInscricao INT, 
 fkUsuario INT, 
 FOREIGN KEY (fkUsuario) REFERENCES Usuario (idUsuario), 
 fkCurso INT, 
@@ -53,3 +54,7 @@ INSERT INTO Curso VALUES (default, "Análise de Balanços", "Avançado", "Finan�
 "https://www.ev.org.br/cursos/Analise-de-Balanços", "Fundação Bradesco");
 
 SELECT * FROM Curso;
+
+SHOW TABLES;
+
+DESCRIBE usuario;
