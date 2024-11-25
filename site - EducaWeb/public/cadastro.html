@@ -48,11 +48,13 @@
         </div>
         <button class="botao" onclick="Cadastrar()">Cadastrar</button>
     </div>
-
+    
     <footer>
         <p>&copy; 2024 EducaWeb. Desenvolvido por: Guilherme Dias.</p>
     </footer>
-
+    
+</html>
+</body>
     <script>
         function ExibirSenha() {
             const senha = document.getElementById("input_senhaUsuario");
@@ -64,21 +66,72 @@
             }
         }
 
-        function Cadastrar() {
-            const nome = input_nomeUsuario.value;
-            const email = input_emailUsuario.value;
-            const dtNascimento = input_dtNasc.value;
-            const senha = input_senhaUsuario.value;
-            const confirmacaoSenha = input_confirmacaoSenha.value;
+        function cadastrar() {
+    // aguardar();
 
-            if (!nome || !email || !dtNascimento || !senha || !confirmacaoSenha) {
-                alert('Preencha todos os campos');
-            } else if (senha != confirmacaoSenha) {
-                alert('As senhas não conferem');
-            } else {
-                window.location.href = "../site - EducaWeb/login.html";
-            }
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nomeVar = input_nomeUsuario.value;
+    var emailVar = input_emailUsuario.value;
+    var senhaVar = input_senhaUsuario.value;
+    var confirmacaoSenhaVar = input_confirmacaoSenha.value;
+
+    // Verificando se há algum campo em branco
+    if (
+      nomeVar == "" ||
+      emailVar == "" ||
+      senhaVar == "" ||
+      confirmacaoSenhaVar == ""
+    ) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Mensagem de erro para todos os campos em branco)";
+
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          cardErro.style.display = "block";
+
+          mensagem_erro.innerHTML =
+            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+          setTimeout(() => {
+            window.location = "../site - EducaWeb/login.html";
+          }, "2000");
+
+          limparFormulario();
+          finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
         }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
+
+    return false;
+  }
+  
     </script>
-</body>
-</html>
