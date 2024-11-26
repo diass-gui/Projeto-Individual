@@ -3,26 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../site - EducaWeb/styles/index.css">
-    <link rel="stylesheet" href="../site - EducaWeb/styles/cadastro.css">
-    <link rel="stylesheet" href="../site - EducaWeb/styles/login.css">
-    <link rel="stylesheet" href="../site - EducaWeb/styles/catalogo.css">
-    <link rel="stylesheet" href="../site - EducaWeb/styles/perfil.css">
-    <link rel="stylesheet" href="../site - EducaWeb/styles/dashboard.css">
+    <link rel="stylesheet" href="styles/cadastro.css">
+    <link rel="stylesheet" href="styles/index.css">
     <link rel="icon" href="../Documentação/Imagens/simbolo_educaWeb.png">
     <title>Cadastro | EducaWeb</title>
 </head>
 <body>
     <header>
         <div class="container">
-            <a class="logo" href="./index.html">
+            <a class="logo" href="index.html">
                 <img src="../Documentação/Imagens/icon_educaWeb.png" alt="Logo EducaWeb">
             </a>
         </div>
         <div class="navbar">
             <ul>
-                <li><a href="./login.html">Login</a></li>
-                <li><a href="./catalogo.html">Catálogo</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
             </ul>
         </div>
     </header>
@@ -66,7 +62,7 @@
             }
         }
 
-        function cadastrar() {
+        function Cadastrar() {
     // aguardar();
 
     //Recupere o valor da nova input pelo nome do id
@@ -83,15 +79,8 @@
       senhaVar == "" ||
       confirmacaoSenhaVar == ""
     ) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
-
-      finalizarAguardar();
-      return false;
-    } else {
-      setInterval(sumirMensagem, 5000);
-    }
+      return alert("Preencha todos os campos.")
+    } 
 
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
@@ -111,24 +100,18 @@
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          cardErro.style.display = "block";
 
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+          alert("Cadastro realizado com sucesso!")
 
           setTimeout(() => {
-            window.location = "../site - EducaWeb/login.html";
-          }, "2000");
-
-          limparFormulario();
-          finalizarAguardar();
+            window.location.href = "login.html";
+          }, "1000");
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
         }
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
       });
 
     return false;

@@ -3,27 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../site - EducaWeb/styles/index.css">
-    <link rel="stylesheet" href="../site - EducaWeb/styles/login.css">
-    <link rel="stylesheet" href="../site - EducaWeb/styles/cadastro.css">
-    <link rel="stylesheet" href="../site - EducaWeb/styles/catalogo.css">
-    <link rel="stylesheet" href="../site - EducaWeb/styles/perfil.css">
-    <link rel="stylesheet" href="../site - EducaWeb/styles/dashboard.css">
-    <link rel="icon" href="../Documentação/Imagens/simbolo_educaWeb.png">
+    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="stylesheet" href="/styles/login.css">
+    <link rel="icon" href="/Documentação/Imagens/simbolo_educaWeb.png">
     <title>Login | EducaWeb</title>
 </head>
 <body>
     <header>
         <div class="container">
-            <a class="logo" href="./index.html">
-                <img src="../Documentação/Imagens/icon_educaWeb.png" alt="Logo EducaWeb">
+            <a class="logo" href="index.html">
+                <img src="/Documentação/Imagens/icon_educaWeb.png" alt="Logo EducaWeb">
             </a>
         </div>
         <div class="navbar">
             <ul>
-                <li><a href="./cadastro.html">Cadastro</a></li>
-                <li><a href="./login.html">Login</a></li>
-                <li><a href="./catalogo.html">Catálogo</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
             </ul>
         </div>
     </header>
@@ -31,14 +27,14 @@
     <div class="login">
         <h1>Login do Usuário</h1>
         <div class="campo">
-            <label for="loginUsuario_input">E-mail:</label>
-            <input id="loginUsuario_input" type="email" placeholder="Ex: usuario@dominio.com">
+            <label for="input_loginUsuario">E-mail:</label>
+            <input id="input_loginUsuario" type="email" placeholder="Ex: usuario@dominio.com">
         </div>
         <div class="campo">
-            <label for="senhaUsuario_input">Senha:</label>
-            <input id="senhaUsuario_input" type="password" placeholder="*********">
+            <label for="input_senhaLogin">Senha:</label>
+            <input id="input_senhaLogin" type="password" placeholder="*********">
         </div>
-        <button class="botao" onclick="AutenticarLogin()">Entrar</button>
+        <button class="botao" onclick="entrar()">Entrar</button>
     </div>
 
     <footer>
@@ -49,22 +45,14 @@
 </html>
 
 <script>
-
        
     function entrar() {
-        aguardar();
 
-        var emailVar = email_input.value;
-        var senhaVar = senha_input.value;
+        var emailVar = input_loginUsuario.value;
+        var senhaVar = input_senhaLogin.value;
 
         if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            finalizarAguardar();
-            return false;
-        }
-        else {
-            setInterval(sumirMensagem, 5000)
+            return alert("Preencha todos os campos")
         }
 
         console.log("FORM LOGIN: ", emailVar);
@@ -90,7 +78,8 @@
                     console.log(JSON.stringify(json));
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
+                    window.location.href="perfilUsuario.html"
                 });
 
             } else {
@@ -99,7 +88,6 @@
 
                 resposta.text().then(texto => {
                     console.error(texto);
-                    finalizarAguardar(texto);
                 });
             }
 
