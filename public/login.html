@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="stylesheet" href="/styles/login.css">
+    <link rel="icon" href="/Documentação/Imagens/simbolo_educaWeb.png">
+    <title>Login | EducaWeb</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a class="logo" href="index.html">
+                <img src="/Documentação/Imagens/icon_educaWeb.png" alt="Logo EducaWeb">
+            </a>
+        </div>
+        <div class="navbar">
+            <ul>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="login">
+        <h1>Login do Usuário</h1>
+        <div class="campo">
+            <label for="input_loginUsuario">E-mail:</label>
+            <input id="input_loginUsuario" type="email" placeholder="Ex: usuario@dominio.com">
+        </div>
+        <div class="campo">
+            <label for="input_senhaLogin">Senha:</label>
+            <input id="input_senhaLogin" type="password" placeholder="*********">
+        </div>
+        <button class="botao" onclick="entrar()">Entrar</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 EducaWeb. Desenvolvido por: Guilherme Dias.</p>
+    </footer>
+    
+</body>
+</html>
+
+<script>
+       
+    function entrar() {
+
+        var emailVar = input_loginUsuario.value;
+        var senhaVar = input_senhaLogin.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            return alert("Preencha todos os campos")
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
+                    window.location.href="perfilUsuario.html"
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+</script>   

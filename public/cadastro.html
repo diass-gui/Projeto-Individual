@@ -3,26 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../site - EducaWeb/styles/index.css">
-    <link rel="stylesheet" href="../site - EducaWeb/styles/cadastro.css">
-    <link rel="stylesheet" href="../site - EducaWeb/styles/login.css">
-    <link rel="stylesheet" href="../site - EducaWeb/styles/catalogo.css">
-    <link rel="stylesheet" href="../site - EducaWeb/styles/perfil.css">
-    <link rel="stylesheet" href="../site - EducaWeb/styles/dashboard.css">
+    <link rel="stylesheet" href="styles/cadastro.css">
+    <link rel="stylesheet" href="styles/index.css">
     <link rel="icon" href="../Documentação/Imagens/simbolo_educaWeb.png">
     <title>Cadastro | EducaWeb</title>
 </head>
 <body>
     <header>
         <div class="container">
-            <a class="logo" href="./index.html">
+            <a class="logo" href="index.html">
                 <img src="../Documentação/Imagens/icon_educaWeb.png" alt="Logo EducaWeb">
             </a>
         </div>
         <div class="navbar">
             <ul>
-                <li><a href="./login.html">Login</a></li>
-                <li><a href="./catalogo.html">Catálogo</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
             </ul>
         </div>
     </header>
@@ -48,13 +44,19 @@
         </div>
         <button class="botao" onclick="Cadastrar()">Cadastrar</button>
     </div>
-
+    
     <footer>
         <p>&copy; 2024 EducaWeb. Desenvolvido por: Guilherme Dias.</p>
     </footer>
+<<<<<<< HEAD:site - EducaWeb/cadastro.html
 
 </body>
 </html>
+=======
+    
+</html>
+</body>
+>>>>>>> bd7a998967da3e9ccec93ddf603f043e231869d2:public/cadastro.html
     <script>
         function ExibirSenha() {
             const senha = document.getElementById("input_senhaUsuario");
@@ -67,18 +69,61 @@
         }
 
         function Cadastrar() {
-            const nome = input_nomeUsuario.value;
-            const email = input_emailUsuario.value;
-            const dtNascimento = input_dtNasc.value;
-            const senha = input_senhaUsuario.value;
-            const confirmacaoSenha = input_confirmacaoSenha.value;
+    // aguardar();
 
-            if (!nome || !email || !dtNascimento || !senha || !confirmacaoSenha) {
-                alert('Preencha todos os campos');
-            } else if (senha != confirmacaoSenha) {
-                alert('As senhas não conferem');
-            } else {
-                window.location.href = "../site - EducaWeb/login.html";
-            }
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nomeVar = input_nomeUsuario.value;
+    var emailVar = input_emailUsuario.value;
+    var senhaVar = input_senhaUsuario.value;
+    var confirmacaoSenhaVar = input_confirmacaoSenha.value;
+
+    // Verificando se há algum campo em branco
+    if (
+      nomeVar == "" ||
+      emailVar == "" ||
+      senhaVar == "" ||
+      confirmacaoSenhaVar == ""
+    ) {
+      return alert("Preencha todos os campos.")
+    } 
+
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+
+          alert("Cadastro realizado com sucesso!")
+
+          setTimeout(() => {
+            window.location.href = "login.html";
+          }, "1000");
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
         }
+<<<<<<< HEAD:site - EducaWeb/cadastro.html
+=======
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+
+    return false;
+  }
+  
+>>>>>>> bd7a998967da3e9ccec93ddf603f043e231869d2:public/cadastro.html
     </script>
