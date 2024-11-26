@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/index.css">
-    <link rel="stylesheet" href="/styles/catalogo.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/catalogo.css">
     <link rel="icon" href="/Documentação/Imagens/simbolo_educaWeb.png">
     <title>Catálogo | EducaWeb</title>
 </head>
@@ -17,44 +17,123 @@
         </div>
         <div class="navbar">
             <ul>
-                <li><a href="cadastro.html">Cadastro</a></li>
-                <li><a href="login.html">Login</a></li>
+                <li><a href="dashboard.html">Dashboard></li>
+                <li><a href="perfilUsuario.html">Perfil</a></li>
             </ul>
         </div>
     </header>
 
     <section class="catalogo">
         <h2>Catálogo de Cursos</h2>
-        <div class="cursos">
-            <div class="cursos-div" id="curso-1" onclick="acessarCurso(1)">Curso 1</div>
-            <div class="cursos-div" id="curso-2" onclick="acessarCurso(2)">Curso 2</div>
-            <div class="cursos-div" id="curso-3" onclick="acessarCurso(3)">Curso 3</div>
-        </div>
-        <div class="cursos">
-            <div class="cursos-div" id="curso-4" onclick="acessarCurso(4)">Curso 4</div>
-            <div class="cursos-div" id="curso-5" onclick="acessarCurso(5)">Curso 5</div>
-            <div class="cursos-div" id="curso-6" onclick="acessarCurso(6)">Curso 6</div>
-        </div>
-        <div class="cursos">
-            <div class="cursos-div" id="curso-7" onclick="acessarCurso(7)">Curso 7</div>
-            <div class="cursos-div" id="curso-8" onclick="acessarCurso(8)">Curso 8</div>
-            <div class="cursos-div" id="curso-9" onclick="acessarCurso(9)">Curso 9</div>
-        </div>
+        <div class="cursos" id="cursos-lista"></div>
     </section>
 
     <footer>
-        <p>&copy; 2024 EducaWeb. Desenvolvido por: Guilherme Dias. </p>
+        <p>&copy; 2024 EducaWeb. Desenvolvido por: Guilherme Dias.</p>
     </footer>
 
     <script>
-        // Função para acessar o curso e redirecionar, passando o ID do curso
-        function acessarCurso(idCurso) {
-            var usuarioId = 100; // Suponha que você tenha o ID do usuário de alguma forma, por exemplo, através de uma sessão ou variável
+        // Array de cursos fictícios
+        const cursos = [
+            {
+                idCurso: 1,
+                nome: "Tutorial de Redes de Computadores",
+                plataforma: "Udemy",
+                link: "https://www.udemy.com/share/101qJo3@9l84m5RGhVpAIsLbU_Lw4d1gkZ54ra3bfNWVnq-I__nKSNQU6nY-dersAQyaq5Vq9g==/",
+                categoria: "TI"
+            },
+            {
+                idCurso: 2,
+                nome: "Tutorial de C++",
+                plataforma: "Udemy",
+                link: "https://www.udemy.com/share/101sqY3@d-1b0ZQKpIkJvPLbIb58t0Fq2nFwK5zPoGZGeHmXu8wcPGOn-aEvW4Yx7q94v1OX4Q==/",
+                categoria: "TI"
+            },
+            {
+                idCurso: 3,
+                nome: "Tutorial de Git para Iniciantes",
+                plataforma: "Udemy",
+                link: "https://www.udemy.com/share/101tY43@Rv8d71_Y7PU2YU3Ju81gy-XwDl17iGUVt1cFdCyEdpQh1E31s5ir28s-BGh3WK1FSQ==/",
+                categoria: "TI"
+            },
+            {
+                idCurso: 4,
+                nome: "Aprendendo a Aprender",
+                plataforma: "Coursera",
+                link: "https://www.coursera.org/learn/learning-how-to-learn",
+                categoria: "Desenvolvimento Pessoal/Profissional"
+            },
+            {
+                idCurso: 5,
+                nome: "Excel para Negócios",
+                plataforma: "Coursera",
+                link: "https://coursera.org/learn/excel-essentials-pt",
+                categoria: "Desenvolvimento Pessoal/Profissional"
+            },
+            {
+                idCurso: 6,
+                nome: "Pensamento Criativo",
+                plataforma: "Coursera",
+                link: "https://www.coursera.org/learn/creative-thinking-techniques-and-tools-for-success",
+                categoria: "Desenvolvimento Pessoal/Profissional"
+            },
+            {
+                idCurso: 7,
+                nome: "Construindo minha Proteção Financeira",
+                plataforma: "Fundação Bradesco",
+                link: "https://www.ev.org.br/cursos/Construindo-minha-Protecao-Financeira",
+                categoria: "Finanças"
+            },
+            {
+                idCurso: 8,
+                nome: "Educação Financeira",
+                plataforma: "Fundação Bradesco",
+                link: "https://www.ev.org.br/cursos/educacao-financeira",
+                categoria: "Finanças"
+            },
+            {
+                idCurso: 9,
+                nome: "Análise de Balanços",
+                plataforma: "Fundação Bradesco",
+                link: "https://www.ev.org.br/cursos/Analise-de-Balanços",
+                categoria: "Finanças"
+            }
+        ];
 
-            // Fazer a requisição para a rota de backend que vai atualizar o contador e redirecionar
+        // Função para gerar os cursos na página
+        function exibirCursos() {
+            const listaCursos = document.getElementById('cursos-lista');
+            
+            // Limpa a lista antes de adicionar novos cursos
+            listaCursos.innerHTML = "";
+
+            // Loop para criar os elementos HTML dos cursos
+            cursos.forEach(curso => {
+                const divCurso = document.createElement('div');
+                divCurso.classList.add('cursos-div');
+                divCurso.innerHTML = `
+                    <h3>${curso.nome}</h3>
+                    <p><strong>Plataforma:</strong> ${curso.plataforma}</p>
+                    <p><strong>Categoria:</strong> ${curso.categoria}</p>
+                    <a href="${curso.link}" target="_blank" class="botao-curso">Acessar Curso</a>
+                `;
+                divCurso.onclick = function() {
+                    acessarCurso(curso.idCurso);
+                };
+                listaCursos.appendChild(divCurso);
+            });
+        }
+
+        // Função para acessar o curso e redirecionar
+        function acessarCurso(idCurso) {
+            var usuarioId = 100; // Suponha que você tenha o ID do usuário de alguma forma
+
+            // Fazer o redirecionamento para o curso com o ID do curso e usuário
             window.location.href = `/acessar-curso/${idCurso}?usuarioId=${usuarioId}`;
         }
-    </script>
 
+        // Chama a função para exibir os cursos quando a página carrega
+        window.onload = exibirCursos;
+    </script>
 </body>
 </html>
