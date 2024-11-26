@@ -29,7 +29,8 @@ PRIMARY KEY (fkUsuario, fkCurso),
 inscricaoCurso CHAR(3), 
 CONSTRAINT chkInscricaoCurso CHECK(inscricaoCurso IN ("Sim", "Não")), 
 conclusaoCurso CHAR(3), 
-CONSTRAINT chkConclusaoCurso CHECK(conclusaoCurso IN ("Sim", "Não"))
+CONSTRAINT chkConclusaoCurso CHECK(conclusaoCurso IN ("Sim", "Não")), 
+qtdVisitas INT
 ); 
 
 INSERT INTO Curso VALUES (default, "Tutorial de Redes de Computadores", "Básico", "TI",

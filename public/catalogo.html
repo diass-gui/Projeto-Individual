@@ -26,24 +26,35 @@
     <section class="catalogo">
         <h2>Catálogo de Cursos</h2>
         <div class="cursos">
-            <div class="cursos-div">Curso 1</div>
-            <div class="cursos-div">Curso 2</div>
-            <div class="cursos-div">Curso 3</div>
+            <div class="cursos-div" id="curso-1" onclick="acessarCurso(1)">Curso 1</div>
+            <div class="cursos-div" id="curso-2" onclick="acessarCurso(2)">Curso 2</div>
+            <div class="cursos-div" id="curso-3" onclick="acessarCurso(3)">Curso 3</div>
         </div>
         <div class="cursos">
-            <div class="cursos-div">Curso 4</div>
-            <div class="cursos-div">Curso 5</div>
-            <div class="cursos-div">Curso 6</div>
+            <div class="cursos-div" id="curso-4" onclick="acessarCurso(4)">Curso 4</div>
+            <div class="cursos-div" id="curso-5" onclick="acessarCurso(5)">Curso 5</div>
+            <div class="cursos-div" id="curso-6" onclick="acessarCurso(6)">Curso 6</div>
         </div>
         <div class="cursos">
-            <div class="cursos-div">Curso 7</div>
-            <div class="cursos-div">Curso 8</div>
-            <div class="cursos-div">Curso 9</div>
+            <div class="cursos-div" id="curso-7" onclick="acessarCurso(7)">Curso 7</div>
+            <div class="cursos-div" id="curso-8" onclick="acessarCurso(8)">Curso 8</div>
+            <div class="cursos-div" id="curso-9" onclick="acessarCurso(9)">Curso 9</div>
         </div>
     </section>
 
     <footer>
         <p>&copy; 2024 EducaWeb. Desenvolvido por: Guilherme Dias. </p>
     </footer>
+
+    <script>
+        // Função para acessar o curso e redirecionar, passando o ID do curso
+        function acessarCurso(idCurso) {
+            var usuarioId = 100; // Suponha que você tenha o ID do usuário de alguma forma, por exemplo, através de uma sessão ou variável
+
+            // Fazer a requisição para a rota de backend que vai atualizar o contador e redirecionar
+            window.location.href = `/acessar-curso/${idCurso}?usuarioId=${usuarioId}`;
+        }
+    </script>
+
 </body>
 </html>
