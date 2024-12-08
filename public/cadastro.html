@@ -87,7 +87,7 @@
     } 
 
     // Enviando o valor da nova input
-    fetch("/usuarios/cadastrar", {
+    fetch("../usuarios/cadastrar", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -112,6 +112,7 @@
           }, "1000");
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
+          alert("Houve um erro ao realizar o cadastro!");
       }})
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
