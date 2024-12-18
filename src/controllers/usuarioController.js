@@ -36,7 +36,6 @@ function autenticar(req, res) {
                     console.log(erro);
                     console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
                     res.status(500).json(erro.sqlMessage);
-                    alert("Erro ao realizar o login!");
                 }
             );
     }
